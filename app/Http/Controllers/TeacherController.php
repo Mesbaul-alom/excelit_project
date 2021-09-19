@@ -63,7 +63,7 @@ class TeacherController extends Controller
         //
             //return view('teacher.result')->with('studentdata',$studentResult)->with('subject_idSu',$id);
          $students_of_class=Subject::with(['student','teacher'])->where('id',$id)->first();
-        // dd($students_of_class);
+        //dd($students_of_class);
         return view('teacher.damu')->with('subject',$students_of_class);
 
         }
