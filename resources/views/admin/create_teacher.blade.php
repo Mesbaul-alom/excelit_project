@@ -82,7 +82,7 @@
                                                        @endif
                                                     </div>
                                                 </div>
-        
+
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Gender</label>
@@ -98,7 +98,7 @@
                                                     <div class="form-group">
                                                 <label>Date of birth</label>
                                                 <div class="input-group">
-                                                    <input value="{{old('dob')}}"name="dob"  type="text" class="form-control" placeholder="dd M, yyyy" data-date-format="dd M, yyyy" data-provide="datepicker" data-date-autoclose="true">
+                                                    <input value="{{old('dob')}}"name="dob"  type="date" class="form-control" >
 
                                                 </div><!-- input-group -->
                                                 @if($errors->has('dob'))
@@ -141,25 +141,25 @@
                                             </div>
                                     </div>
 
-                                </div> 
+                                </div>
                                 <!-- end card-->
                                                 </div>
                                             </div>
-        
+
                                             <button type="submit" class="btn btn-primary mr-1 waves-effect waves-light">Add Teacher</button>
                                         </form>
-        
+
                                     </div>
                                 </div>
-                    
+
                 </div>
                 <!-- End Page-content -->
-                @if(isset($success) && $success == true) 
+                @if(isset($success) && $success == true)
                 <script>
                  Swal.fire(
                      'success','New Teacher sucessfully done','success'
                  );
-             
+
            </script>
-                @endif 
+                @endif
  @endsection

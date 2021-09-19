@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        
+
         <meta charset="utf-8">
         <title>Result Management System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +16,12 @@
         <link href="{{asset('assets\css\icons.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets\css\cards.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('assets\css\subjects.css')}}" rel="stylesheet" type="text/css">
-        
-     
+
+
         <!-- App Css-->
         <link href="{{asset('assets\css\app.min.css')}}" id="app-style" rel="stylesheet" type="text/css">
 
-        
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
     </head>
@@ -32,14 +32,14 @@
         <div id="layout-wrapper">
 
            <!-- header part start -->
-           @include('teacher.body.teacher_header')
+           @include('teacher.body.teacher_header',['data' =>$data])
          <!-- header part end -->
-            
+
         <!-- header part start -->
         @include('teacher.body.teacher_sidebar')
          <!-- header part end -->
 
-          
+
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
@@ -49,20 +49,20 @@
                      <!-- Main Content -->
                @yield('main_content')
              <!-- end main content -->
-                       
+
 
                       <!-- footer part start -->
                       @include('teacher.body.teacher_footer')
                       <!-- footer part end -->
-                
-                
+
+
             </div>
             <!-- end main content-->
 
         </div>
         <!-- END layout-wrapper -->
 
-        
+
 
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
@@ -77,8 +77,8 @@
         <script>
 
     /*function fetchdata(ID){
-     
-     
+
+
       $.ajax({
         type: "get",
         url: `/teacher/result/${ID}`,
@@ -86,19 +86,19 @@
         success: function (response) {
 
           console.log(response.student);
-          
-          // $.each(response.student, function (key,item) { 
-             
+
+          // $.each(response.student, function (key,item) {
+
           //       $('tbody').append(`<tr>
           //       <td>${item.id}</td>
           //       <td>${item.name}</td>
           //       <td>${item.result}</td>
-                
+
           //       </tr>`
           //                      );
-               
+
           // });
-          
+
         }
       });
 
@@ -106,12 +106,12 @@
     }*/
 
     $(document).ready( function(){
-    
+
     $('.editmarks').on('click',function(){
-    
-    
+
+
     $('#resltview').modal('show');
-   
+
     $tr= $(this).closest('tr');
 
     var data= $tr.children("td").map(function(){
@@ -120,34 +120,34 @@
 
     }).get();
 
-   
+
 
     $('#marks').val(data[2]);
     $('#dd').val(data[0]);
-   
+
     $('#studentname').text("Submit Marks for: "+data[1]);
-    
-     
-   
-    
-    
+
+
+
+
+
    })
 
    $('#marksb').on('click',function(){
-    
+
     var student_id = $("#dd").val();
     var Subject_id = $("#subject_id").val();
     var marks = $("#marks").val();
 
     //alert(Subject_id);
 
-    
+
     var data={student_id:student_id,Subject_id:Subject_id,marks:marks}
     var url="/submitmarks";
     axios.post(url,data)
   .then(function (response) {
-   
-   
+
+
   //alert(response.data);
   location.reload();
   //location.reload();
@@ -155,31 +155,31 @@
   .catch(function (error) {
     console.log(error.response.data);
   });
-    
-  
+
+
 
   //$('#marksb').modal('hide');
 
-  
-    
+
+
    })
 
- 
 
-   
-    
-    
+
+
+
+
     })
 
 
- 
 
 
 
 
-    
-    
-    
+
+
+
+
     </script>
 
 <script src="{{asset('assets/js/core/jquery.min.js')}}"></script>
