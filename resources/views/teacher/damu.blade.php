@@ -1,4 +1,4 @@
-@extends('teacher/teacher_master');
+@extends('teacher/teacher_master',['data'=>$subject->teacher[0]]);
 
 @section('main_content')
 <div class="modal fade" id="resltview" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

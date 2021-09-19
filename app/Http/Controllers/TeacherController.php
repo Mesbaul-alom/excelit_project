@@ -23,8 +23,11 @@ class TeacherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
+        $id = session('id');
 
-         return view('teacher.teacher_master');
+        $teacher_details = Teacher::where('id',$id)->first();
+       // dd( $teacher_details);
+        return view('teacher.teacher_master')->with('data', $teacher_details);
 
              }
 
@@ -45,6 +48,8 @@ class TeacherController extends Controller
             $id = session('id');
 
             $data_list= Teacher::with(['subject'])->where('id',$id)->first();
+
+            //dd($data_list);
             return view('teacher.takencourse')->with('subjectdata',$data_list);
 }
 
@@ -58,7 +63,7 @@ class TeacherController extends Controller
         //
             //return view('teacher.result')->with('studentdata',$studentResult)->with('subject_idSu',$id);
          $students_of_class=Subject::with(['student','teacher'])->where('id',$id)->first();
-        // dd($students_of_class);
+        //dd($students_of_class);
         return view('teacher.damu')->with('subject',$students_of_class);
 
         }

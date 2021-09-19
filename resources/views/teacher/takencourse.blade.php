@@ -3,37 +3,37 @@
 
 <style>
     table,td {
-     
+
       padding: 20px;
     }
-   
+
     </style>
 
 <table>
 
- 
-     
+
+
 <tr>
- / 
+ /
     <td>
     <div class="card" style="width: 18rem;">
-    
+
         <div class="card-body">
-          <h5 class="card-title"></h5>  
-          <p class="card-text"></p> 
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
           <a href="../teacher/Studentrecord/" class="btn btn-primary">Assign Result</a>
         </div>
       </div>
-      
-
-    </td> 
 
 
-         
+    </td>
+
+
+
 </tr>
 
 
-  
+
 
 
 
@@ -45,15 +45,15 @@
 
 
 
-  
 
 
 
 
- 
 
 
-@extends('/teacher/teacher_master');
+
+
+@extends('/teacher/teacher_master',['data' =>$subjectdata]);
 
 @section('main_content')
 <!-- ============================================================== -->
@@ -65,12 +65,6 @@
                                 <div class="page-title-box d-flex align-items-center justify-content-between">
                                     <h4 class="mb-0 font-size-18">TAKEN COURSES</h4>
 
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Oparetors</a></li>
-                                            <li class="breadcrumb-item active">Oparetor List</li>
-                                        </ol>
-                                    </div>
 
                                 </div>
                             </div>
@@ -82,9 +76,9 @@
                             <div class="col-xl-3 col-lg-6">
                               <div class="card l-bg-blue-dark">
                                   <div class="card-statistic-3 p-4">
-                                     
+
                                       <div class="mb-4">
-                                        
+
                                           <h2 class="d-flex align-items-center mb-0">
                                             {{$data->subject_name}}
                                           </h2>
@@ -108,15 +102,15 @@
                             </div>
                             @endforeach
                         </div>
-                        <!-- end row -->   
-                        
-                        
+                        <!-- end row -->
+
+
                         <script src="{{asset('assets\libs\apexcharts\apexcharts.min.js')}}"></script>
         <!-- Saas dashboard init -->
         <script src="{{asset('assets\js\pages\saas-dashboard.init.js')}}"></script>
 
         <script src="{{asset('assets\js\app.js')}}"></script>
-        
+
 @endsection
 
 
